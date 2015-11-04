@@ -118,6 +118,8 @@
 		BC4546071BE3AF2500A6EA27 /* GroupBuyingDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4546061BE3AF2500A6EA27 /* GroupBuyingDetialController.m */; };
 		BC58516F1BE4514300E425DF /* GroupBuyingDetialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC58516E1BE4514300E425DF /* GroupBuyingDetialCell.m */; };
 		BC5851721BE4BB5E00E425DF /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5851711BE4BB5E00E425DF /* MineController.m */; };
+		BC6B3E4D1BEA43F8003F2425 /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6B3E4C1BEA43F8003F2425 /* DataBaseManager.m */; };
+		BC6B3E4F1BEA4B88003F2425 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6B3E4E1BEA4B88003F2425 /* libsqlite3.0.dylib */; };
 		BC841EA11BD86D1C00783263 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC841EA01BD86D1C00783263 /* main.m */; };
 		BC841EA41BD86D1C00783263 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC841EA31BD86D1C00783263 /* AppDelegate.m */; };
 		BC841EAF1BD86D1C00783263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC841EAE1BD86D1C00783263 /* Images.xcassets */; };
@@ -386,6 +388,9 @@
 		BC58516E1BE4514300E425DF /* GroupBuyingDetialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBuyingDetialCell.m; sourceTree = "<group>"; };
 		BC5851701BE4BB5E00E425DF /* MineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
 		BC5851711BE4BB5E00E425DF /* MineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
+		BC6B3E4B1BEA43F8003F2425 /* DataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
+		BC6B3E4C1BEA43F8003F2425 /* DataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
+		BC6B3E4E1BEA4B88003F2425 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		BC841E9B1BD86D1C00783263 /* JiWuAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiWuAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC841E9F1BD86D1C00783263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC841EA01BD86D1C00783263 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -551,6 +556,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6B3E4F1BEA4B88003F2425 /* libsqlite3.0.dylib in Frameworks */,
 				BC39CE881BDF743C003DADBE /* libSocialQQ.a in Frameworks */,
 				BC39CE8B1BDF743C003DADBE /* libSocialWechat.a in Frameworks */,
 				BC39CE8C1BDF743C003DADBE /* libWeChatSDK.a in Frameworks */,
@@ -1198,9 +1204,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		BC6B3E4A1BEA43AA003F2425 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				BC6B3E4B1BEA43F8003F2425 /* DataBaseManager.h */,
+				BC6B3E4C1BEA43F8003F2425 /* DataBaseManager.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		BC841E921BD86D1C00783263 = {
 			isa = PBXGroup;
 			children = (
+				BC6B3E4E1BEA4B88003F2425 /* libsqlite3.0.dylib */,
 				BC841FF71BD8C15A00783263 /* CoreLocation.framework */,
 				BC841E9D1BD86D1C00783263 /* JiWuAPP */,
 				BC841EBA1BD86D1C00783263 /* JiWuAPPTests */,
@@ -1265,6 +1281,7 @@
 		BC841EC71BD8728D00783263 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC6B3E4A1BEA43AA003F2425 /* DataBase */,
 				BC841EC81BD8728D00783263 /* Category */,
 				BC841EC91BD8728D00783263 /* Cells */,
 				BC841ECA1BD8728D00783263 /* Controllers */,
@@ -1932,6 +1949,7 @@
 				BC4164EA1BDB1B6700909CB5 /* FreshController.m in Sources */,
 				BC39CE441BDF4D9C003DADBE /* NSString+Frame.m in Sources */,
 				BC8F21721BE8E3140056DAB7 /* ChatCell.m in Sources */,
+				BC6B3E4D1BEA43F8003F2425 /* DataBaseManager.m in Sources */,
 				BC841FAF1BD8870F00783263 /* MJRefreshConst.m in Sources */,
 				BC4164F21BDB1B6700909CB5 /* MainHourseCell.m in Sources */,
 				BC841FB01BD8870F00783263 /* UIScrollView+MJExtension.m in Sources */,
