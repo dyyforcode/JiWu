@@ -477,6 +477,8 @@
         if(!menuTableCell){
             menuTableCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MenuTableViewCell"];
         }
+        //cell的点击效果设置为None
+        menuTableCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         if(self.selectedIndex == 1){
             if(self.menuBarAreaArray.count < 1){
@@ -510,6 +512,8 @@
         if(!menuTableCell){
             menuTableCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MenuTableViewCell"];
         }
+        //cell的点击效果设置为None
+        menuTableCell.selectionStyle = UITableViewCellSelectionStyleNone;
         menuTableCell.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
         
         AreaChooseModel * areaLoModel = self.menuBarAreaArray[self.chooseIndex];
@@ -528,7 +532,8 @@
     SecondHandHouseModel * houseModel = self.dataArray[indexPath.row];
     
     SecondHandCell * secondHandCell = [tableView dequeueReusableCellWithIdentifier:@"SecondHandCell"];
-    
+    //cell的点击效果设置为None
+    secondHandCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     secondHandCell.model = houseModel;
    

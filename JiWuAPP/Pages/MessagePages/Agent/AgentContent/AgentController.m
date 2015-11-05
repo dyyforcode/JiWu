@@ -146,6 +146,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AgentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AgentCell"];
+    //cell的点击效果设置为None
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     AgentModel * agentModel = self.dataArray[indexPath.row];
     

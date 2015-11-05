@@ -112,6 +112,8 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AgentDetialCell * cell;
+    //cell的点击效果设置为None
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     if(indexPath.section == 0){
         cell = [tableView dequeueReusableCellWithIdentifier:@"AgentDetialInfoCell"];

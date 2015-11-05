@@ -531,6 +531,8 @@
             FeatureChooseModel * featureModel = self.menuBarFeatureArray[indexPath.row];
             menuTableCell.textLabel.text = featureModel.name;
         }
+        //cell的点击效果设置为None
+        menuTableCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return menuTableCell;
         
     }
@@ -547,6 +549,8 @@
         SubAreaChooseModel * subAreaLoModel = areaLoModel.plateArray[indexPath.row];
         
         menuTableCell.textLabel.text = subAreaLoModel.plateName;
+        //cell的点击效果设置为None
+        menuTableCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return menuTableCell;
     }
 //self.tableView
@@ -561,6 +565,8 @@
         }
         cell.textLabel.text = self.dataArray[indexPath.row];
         cell.textLabel.textColor = [UIColor lightGrayColor];
+        //cell的点击效果设置为None
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -573,7 +579,8 @@
     
     
    
-    
+    //cell的点击效果设置为None
+    freshCell.selectionStyle = UITableViewCellSelectionStyleNone;
     return freshCell;
 }
 

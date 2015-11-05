@@ -115,6 +115,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+   
+    
     MainTableHeadView * headView = [MainTableHeadView mainTableHeadView];
     CGFloat interval = 30;
     CGFloat width = (self.view.frame.size.width - (interval * 3 + interval / 2 * 2)) / 4;
@@ -352,6 +354,8 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UItableViewCell"];
         }
         cell.textLabel.text = localPriceModel.averPrice;
+        //cell的点击效果设置为None
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -362,6 +366,8 @@
                 commonCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault     reuseIdentifier:@"UItableViewCell"];
             }
             commonCell.textLabel.text = @"热门楼盘";
+            //cell的点击效果设置为None
+            commonCell.selectionStyle = UITableViewCellSelectionStyleNone;
             return commonCell;
 
         }else if(indexPath.row > 0){
@@ -376,7 +382,8 @@
             MainHourseCell * houseCell = [tableView dequeueReusableCellWithIdentifier:@"MainHouseCell"];
             houseCell.model = houseModel;
             
-        
+            //cell的点击效果设置为None
+            houseCell.selectionStyle = UITableViewCellSelectionStyleNone;
             return houseCell;
         }
     }

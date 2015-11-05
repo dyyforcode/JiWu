@@ -190,7 +190,8 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"GroupBuyingFeatureCell"];
     }
     cell.model = model;
-    
+    //cell的点击效果设置为None
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

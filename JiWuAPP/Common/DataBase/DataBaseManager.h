@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class MainHouseModel;
+
 @interface DataBaseManager : NSObject
 
 +(instancetype)shareManager;
+
+-(BOOL)insertFindHouseInfo:(MainHouseModel *)houseMoidel;
 
 @end
