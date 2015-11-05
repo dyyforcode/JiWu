@@ -9,10 +9,12 @@
 #import "DataBaseManager.h"
 
 #import <sqlite3.h>
-#import "MainHouseModel.h"
+#import "HouseDetialModel.h"
 
 #define CreateDataBaseVersionTable @"CREATE TABLE IF NOT EXISTS dataBaseVersion_info (v_key TEXT PRIMARY KEY,v_value TEXT);"
-#define CreateAttentionHouseInfoTable @"CREATE TABLE IF NOT EXISTS attentionHouse_info (id TEXT PRIMARY KEY,name TEXT,address TEXT,price TEXT,grouponInfo TEXT,label TEXT,status TEXT,area TEXT,path TEXT);"
+#define CreateAttentionHouseInfoTable @"CREATE TABLE IF NOT EXISTS attentionHouse_info (id TEXT PRIMARY KEY,name TEXT,address TEXT,price TEXT,grouponInfo TEXT,label TEXT,status TEXT,path TEXT);"
+
+#define ModifyAttentionHouseInfoTable @"ALTER TABLE attentionHouse_info ADD COLUMN cityName TEXT;"
 
 @interface DataBaseManager (){
     sqlite3 * dataBase;
@@ -22,8 +24,40 @@
 
 @implementation DataBaseManager
 
-#pragma mark -删除找房信息
--(BOOL)removeFindHouseInfo:(NSString *)houseId{
+#pragma mark -查找关注房屋信息
+-(NSArray *)selectAttentionHouse{
+    
+    if(sqlite3_open([[self getSQLPath] UTF8String], &dataBase) != SQLITE_OK){
+        return nil;
+    }
+    char * sqlString = "SELECT * FROM attentionHouse_info;";
+    sqlite3_stmt * stmt;
+    int result = sqlite3_prepare_v2(dataBase, sqlString, -1, &stmt, nil);
+    if(result != SQLITE_OK){
+        return nil;
+    }
+    
+    NSMutableDictionary * houseDict = [NSMutableDictionary dictionary];
+    NSMutableArray * mutableArray = [NSMutableArray array];
+    NSArray * titles = @[@"id",@"name",@"address",@"price",@"grouponInfo",@"label",@"status",@"path",@"cityName"];
+    while(sqlite3_step(stmt) == SQLITE_ROW){
+       
+        for(int i=0;i<9;i++){
+            char * house = (char *)sqlite3_column_text(stmt, i);
+            
+        //    NSLog(@"%d C字符串  %s",i,strdup(house));
+            NSString * houseProperty = [NSString stringWithUTF8String:strdup(house)];
+           
+            [houseDict setValue:houseProperty forKey:titles[i]];
+        }
+        [mutableArray addObject:houseDict];
+    }
+    
+    
+    return mutableArray;
+}
+#pragma mark -删除关注房屋信息
+-(BOOL)removeAttentionHouseInfo:(NSString *)houseId{
     if(sqlite3_open([[self getSQLPath] UTF8String], &dataBase) != SQLITE_OK){
         return NO;
     }
@@ -43,26 +77,26 @@
     
     return NO;
 }
-#pragma mark -添加找房信息
--(BOOL)insertFindHouseInfo:(MainHouseModel *)houseMoidel{
+#pragma mark -添加关注房屋信息
+-(BOOL)insertAttentionHouseInfo:(HouseDetialModel *)houseModel cityName:(NSString *)cityName{
     if(sqlite3_open([[self getSQLPath] UTF8String], &dataBase) != SQLITE_OK){
         return NO;
     }
-    char * sql = "INSERT INTO attentionHouse_info values(?,?,?,?,?,?,?,?,?,?)";
+    char * sql = "INSERT INTO attentionHouse_info values(?,?,?,?,?,?,?,?,?)";
     sqlite3_stmt * stmt;
     int result = sqlite3_prepare_v2(dataBase, sql, -1, &stmt, nil);
     if(result != SQLITE_OK){
         return NO;
     }
-    sqlite3_bind_text(stmt, 1, [houseMoidel.ID UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.name UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.address UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.price UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.grouponInfo UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.label UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.status UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.area UTF8String], -1, NULL);
-    sqlite3_bind_text(stmt, 1, [houseMoidel.path UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 1, [[NSString stringWithFormat:@"%@",houseModel.ID] UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 2, [houseModel.name UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 3, [houseModel.address UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 4, [houseModel.price UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 5, [houseModel.grouponInfo UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 6, [houseModel.label UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 7, [houseModel.status UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 8, [houseModel.path UTF8String], -1, NULL);
+    sqlite3_bind_text(stmt, 9, [cityName UTF8String], -1, NULL);
     
     int ret = sqlite3_step(stmt);
     if(ret == SQLITE_OK){
@@ -90,6 +124,7 @@
 }
 #pragma mark -判断文件是否存在
 -(BOOL)isExistFile{
+    NSLog(@"sqlitePath : %@",[self getSQLPath]);
     return [[NSFileManager defaultManager] fileExistsAtPath:[self getSQLPath]];
 }
 #pragma mark -单例
@@ -120,7 +155,9 @@
             }
             dbVersion = atoi(info);
             free(info);
+            NSLog(@"DBVersion : %d",dbVersion);
         }
+         NSLog(@"DBVersion : %d",dbVersion);
         switch (dbVersion) {
             case 1:{
                 [self excuteSQl:CreateDataBaseVersionTable];
@@ -129,7 +166,7 @@
             }
                 
             case 2:{
-                
+                [self excuteSQl:ModifyAttentionHouseInfoTable];
                 [self setDBInfoValueWithKey:"db_version" value:"3"];
             }
                 

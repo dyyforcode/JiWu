@@ -101,6 +101,7 @@
 		BC41650B1BDB8EB400909CB5 /* HouseDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41650A1BDB8EB400909CB5 /* HouseDetialController.m */; };
 		BC41650E1BDB9F6100909CB5 /* HouseDetialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41650D1BDB9F6100909CB5 /* HouseDetialModel.m */; };
 		BC4165121BDBB02D00909CB5 /* BuildDetialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4165111BDBB02D00909CB5 /* BuildDetialCell.m */; };
+		BC41EB611BEB402200C279F2 /* AttentionHouseController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41EB601BEB402200C279F2 /* AttentionHouseController.m */; };
 		BC42CDC61BE1FCB500E4AF32 /* AgentDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC42CDC51BE1FCB500E4AF32 /* AgentDetialController.m */; };
 		BC42CDC91BE1FD8E00E4AF32 /* AgentDetialInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC42CDC81BE1FD8E00E4AF32 /* AgentDetialInfoCell.m */; };
 		BC42CDCC1BE1FDA900E4AF32 /* AgentDetialEvaluateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC42CDCB1BE1FDA900E4AF32 /* AgentDetialEvaluateCell.m */; };
@@ -355,6 +356,8 @@
 		BC41650D1BDB9F6100909CB5 /* HouseDetialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseDetialModel.m; sourceTree = "<group>"; };
 		BC4165101BDBB02D00909CB5 /* BuildDetialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildDetialCell.h; sourceTree = "<group>"; };
 		BC4165111BDBB02D00909CB5 /* BuildDetialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildDetialCell.m; sourceTree = "<group>"; };
+		BC41EB5F1BEB402200C279F2 /* AttentionHouseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttentionHouseController.h; sourceTree = "<group>"; };
+		BC41EB601BEB402200C279F2 /* AttentionHouseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttentionHouseController.m; sourceTree = "<group>"; };
 		BC42CDC41BE1FCB500E4AF32 /* AgentDetialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgentDetialController.h; sourceTree = "<group>"; };
 		BC42CDC51BE1FCB500E4AF32 /* AgentDetialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgentDetialController.m; sourceTree = "<group>"; };
 		BC42CDC71BE1FD8E00E4AF32 /* AgentDetialInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgentDetialInfoCell.h; sourceTree = "<group>"; };
@@ -1429,6 +1432,8 @@
 			children = (
 				BC5851701BE4BB5E00E425DF /* MineController.h */,
 				BC5851711BE4BB5E00E425DF /* MineController.m */,
+				BC41EB5F1BEB402200C279F2 /* AttentionHouseController.h */,
+				BC41EB601BEB402200C279F2 /* AttentionHouseController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1931,6 +1936,7 @@
 				BC841F791BD8870F00783263 /* AFSecurityPolicy.m in Sources */,
 				BC84201A1BD8D05D00783263 /* NSObject+Model.m in Sources */,
 				BC841F801BD8870F00783263 /* NSData+ImageContentType.m in Sources */,
+				BC41EB611BEB402200C279F2 /* AttentionHouseController.m in Sources */,
 				BC4164F61BDB1B6700909CB5 /* SecondHandCell.m in Sources */,
 				BC841F8F1BD8870F00783263 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				BC841F751BD8870F00783263 /* AFHTTPRequestOperation.m in Sources */,

@@ -18,10 +18,12 @@
 #import "UMSocial.h"
 #import "LocationMapController.h"
 
-
+#import "DataBaseManager.h"
 
 
 @interface HouseDetialController ()<UIActionSheetDelegate>
+
+@property (nonatomic) DataBaseManager * dataManager;
 
 @property (nonatomic) HouseDetialModel * detialModel;
 
@@ -40,6 +42,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.dataManager = [DataBaseManager shareManager];
     
     [self loadData];
 }
@@ -88,8 +91,12 @@
                                             otherButtonTitles:@"新浪微博",@"腾讯微博",@"微信好友",@"微信圈子",@"QQ好友",@"QQ空间",@"短信",@"邮箱",nil];
     [ac showInView:ws.view];
     
-    
-    
+     NSString * cityName = [[NSUserDefaults standardUserDefaults] objectForKey:@"LocationCity"][@"cityName"];
+    BOOL isExcuted = [self.dataManager insertAttentionHouseInfo:self.detialModel cityName:cityName];
+  //  BOOL isExcuted = [self.dataManager removeAttentionHouseInfo:@"http://img12.jiwu.com/buildpics/10/4/1274/1274550_m.jpg"];
+    if(!isExcuted){
+        NSLog(@"成功执行");
+    }
 
 }
 

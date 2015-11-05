@@ -8,12 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class MainHouseModel;
+@class HouseDetialModel;
 
 @interface DataBaseManager : NSObject
 
+
+
 +(instancetype)shareManager;
 
--(BOOL)insertFindHouseInfo:(MainHouseModel *)houseMoidel;
+-(BOOL)insertAttentionHouseInfo:(HouseDetialModel *)houseModel cityName:(NSString *)cityName;
+
+-(BOOL)removeAttentionHouseInfo:(NSString *)houseId;
+
+-(NSArray *)selectAttentionHouse;
 
 @end
