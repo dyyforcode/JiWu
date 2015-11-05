@@ -22,7 +22,7 @@
     }else if([key isEqualToString:@"time"]){
         _sendTime = value;
     }else if([key isEqualToString:@"type"]){
-        _messageType = [value integerValue];
+        _messageType = (JWMessageType)[value integerValue];
     }
 }
 

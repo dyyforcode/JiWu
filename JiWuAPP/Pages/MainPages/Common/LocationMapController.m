@@ -23,7 +23,7 @@
 @end
 
 //设置key，运行时动态取FLAnnotation
-static char annStoreKey;
+//static char annStoreKey;
 @implementation LocationMapController
 
 - (void)viewDidLoad {

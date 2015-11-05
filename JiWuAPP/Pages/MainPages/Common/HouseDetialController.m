@@ -174,7 +174,7 @@
                 totalWidth += width;
             }
             NSInteger count = totalWidth / (self.tableView.frame.size.width )  * 20;
-            NSInteger subCount = ((self.tableView.frame.size.width - 8 * (array.count + 1)) - totalWidth >0) ? 1 : 0;
+           
             
             return count + 26;
         }

@@ -453,7 +453,7 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString * cityID = [[NSUserDefaults standardUserDefaults] objectForKey:@"LocationCity"][@"cityId"];
+//    NSString * cityID = [[NSUserDefaults standardUserDefaults] objectForKey:@"LocationCity"][@"cityId"];
     if([segue.identifier isEqualToString:@"ShowFreshHouse"]){
         FreshController * freshController = segue.destinationViewController;
         
@@ -477,7 +477,7 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"HelpMeFindFeature"];
         
 
-        HelpMeFindHouseController * helpController = segue.destinationViewController;
+
         
     }else if([segue.identifier isEqualToString:@"ShowGroupBuying"]){
         

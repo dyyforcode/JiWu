@@ -68,7 +68,7 @@
     [self loadDataFromServe];
 }
 -(void)loadDataFromServe{
-    NSMutableArray * dataArray = [NSMutableArray array];
+   
     
     NSString * path = @"http://m.jiwu.com/app!agentPage.action?v=1.4&appKey=7daf08ccfc302a08fa7a58341e8390ca&deviceId=862851029616599&mobile=%@&cid=391621";
     
