@@ -119,6 +119,10 @@
 		BC4546071BE3AF2500A6EA27 /* GroupBuyingDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4546061BE3AF2500A6EA27 /* GroupBuyingDetialController.m */; };
 		BC58516F1BE4514300E425DF /* GroupBuyingDetialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC58516E1BE4514300E425DF /* GroupBuyingDetialCell.m */; };
 		BC5851721BE4BB5E00E425DF /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5851711BE4BB5E00E425DF /* MineController.m */; };
+		BC59D5C01BEC36B1001EA39D /* NSObject+AOP.m in Sources */ = {isa = PBXBuildFile; fileRef = BC59D5BF1BEC36B1001EA39D /* NSObject+AOP.m */; };
+		BC59D5C31BEC3E35001EA39D /* UINavigationController+AOP.m in Sources */ = {isa = PBXBuildFile; fileRef = BC59D5C21BEC3E35001EA39D /* UINavigationController+AOP.m */; };
+		BC59D5CB1BEC919F001EA39D /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC59D5C91BEC919F001EA39D /* LoginController.m */; };
+		BC59D5CC1BEC919F001EA39D /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC59D5CA1BEC919F001EA39D /* LoginController.xib */; };
 		BC6B3E4D1BEA43F8003F2425 /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC6B3E4C1BEA43F8003F2425 /* DataBaseManager.m */; };
 		BC6B3E4F1BEA4B88003F2425 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6B3E4E1BEA4B88003F2425 /* libsqlite3.0.dylib */; };
 		BC841EA11BD86D1C00783263 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BC841EA01BD86D1C00783263 /* main.m */; };
@@ -391,6 +395,13 @@
 		BC58516E1BE4514300E425DF /* GroupBuyingDetialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBuyingDetialCell.m; sourceTree = "<group>"; };
 		BC5851701BE4BB5E00E425DF /* MineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
 		BC5851711BE4BB5E00E425DF /* MineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
+		BC59D5BE1BEC36B1001EA39D /* NSObject+AOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AOP.h"; sourceTree = "<group>"; };
+		BC59D5BF1BEC36B1001EA39D /* NSObject+AOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AOP.m"; sourceTree = "<group>"; };
+		BC59D5C11BEC3E35001EA39D /* UINavigationController+AOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+AOP.h"; sourceTree = "<group>"; };
+		BC59D5C21BEC3E35001EA39D /* UINavigationController+AOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+AOP.m"; sourceTree = "<group>"; };
+		BC59D5C81BEC919F001EA39D /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		BC59D5C91BEC919F001EA39D /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		BC59D5CA1BEC919F001EA39D /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
 		BC6B3E4B1BEA43F8003F2425 /* DataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
 		BC6B3E4C1BEA43F8003F2425 /* DataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
 		BC6B3E4E1BEA4B88003F2425 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -1207,6 +1218,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		BC59D5C71BEC9184001EA39D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC59D5C81BEC919F001EA39D /* LoginController.h */,
+				BC59D5C91BEC919F001EA39D /* LoginController.m */,
+				BC59D5CA1BEC919F001EA39D /* LoginController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		BC6B3E4A1BEA43AA003F2425 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -1284,10 +1305,10 @@
 		BC841EC71BD8728D00783263 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BC59D5C71BEC9184001EA39D /* Controller */,
 				BC6B3E4A1BEA43AA003F2425 /* DataBase */,
 				BC841EC81BD8728D00783263 /* Category */,
 				BC841EC91BD8728D00783263 /* Cells */,
-				BC841ECA1BD8728D00783263 /* Controllers */,
 				BC841ECB1BD8728D00783263 /* Models */,
 				BC841ECC1BD8728D00783263 /* Views */,
 			);
@@ -1307,6 +1328,10 @@
 				BC39CE401BDF4D85003DADBE /* UIButton+AutoWidth.m */,
 				BC8420181BD8D05D00783263 /* NSObject+Model.h */,
 				BC8420191BD8D05D00783263 /* NSObject+Model.m */,
+				BC59D5BE1BEC36B1001EA39D /* NSObject+AOP.h */,
+				BC59D5BF1BEC36B1001EA39D /* NSObject+AOP.m */,
+				BC59D5C11BEC3E35001EA39D /* UINavigationController+AOP.h */,
+				BC59D5C21BEC3E35001EA39D /* UINavigationController+AOP.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1316,13 +1341,6 @@
 			children = (
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		BC841ECA1BD8728D00783263 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BC841ECB1BD8728D00783263 /* Models */ = {
@@ -1863,6 +1881,7 @@
 				BC33CF8F1BE7A61700556720 /* chat_bottom_textfield@2x.png in Resources */,
 				BC33CFA01BE7A61700556720 /* Contents.json in Resources */,
 				BC33CF951BE7A61700556720 /* chat_bottom_voice_nor@2x.png in Resources */,
+				BC59D5CC1BEC919F001EA39D /* LoginController.xib in Resources */,
 				BC39CE941BDF743C003DADBE /* ios-social-sdk-shake.html in Resources */,
 				BC33CF8A1BE7A61700556720 /* Contents.json in Resources */,
 				BC1587D41BE103F800A2E6AB /* ActionSheetBtnShakefriend@2x.png in Resources */,
@@ -1916,6 +1935,7 @@
 				BC841FAA1BD8870F00783263 /* MJRefreshBackStateFooter.m in Sources */,
 				BC4164EE1BDB1B6700909CB5 /* LocationCell.m in Sources */,
 				BC841F921BD8870F00783263 /* UIImageView+AFNetworking.m in Sources */,
+				BC59D5C01BEC36B1001EA39D /* NSObject+AOP.m in Sources */,
 				BC841F891BD8870F00783263 /* UIImage+GIF.m in Sources */,
 				BC841FA41BD8870F00783263 /* MJRefreshHeader.m in Sources */,
 				BC841F7B1BD8870F00783263 /* AFURLRequestSerialization.m in Sources */,
@@ -1989,6 +2009,8 @@
 				BC841FB21BD8870F00783263 /* UIView+MJExtension.m in Sources */,
 				BC841F8D1BD8870F00783263 /* UIView+WebCacheOperation.m in Sources */,
 				BC841FA01BD8870F00783263 /* MJRefreshAutoFooter.m in Sources */,
+				BC59D5C31BEC3E35001EA39D /* UINavigationController+AOP.m in Sources */,
+				BC59D5CB1BEC919F001EA39D /* LoginController.m in Sources */,
 				BC841F9D1BD8870F00783263 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				BC841F9C1BD8870F00783263 /* NSArray+MASAdditions.m in Sources */,
 				BC841F8A1BD8870F00783263 /* UIImage+MultiFormat.m in Sources */,
