@@ -23,7 +23,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="LaunchImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-wv-W0T">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="LaunchImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="UIl-wv-W0T">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="483"/>
                 </imageView>
             </subviews>
@@ -46,6 +46,6 @@
         </view>
     </objects>
     <resources>
-        <image name="LaunchImage.png" width="640" height="960"/>
+        <image name="LaunchImage.png" width="320" height="480"/>
     </resources>
 </document>

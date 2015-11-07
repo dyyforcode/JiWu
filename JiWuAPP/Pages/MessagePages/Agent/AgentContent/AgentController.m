@@ -26,6 +26,13 @@
 
 @implementation AgentController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 -(NSMutableArray *)dataArray{
     if(!_dataArray){
         NSMutableArray * dataArray = [NSMutableArray array];

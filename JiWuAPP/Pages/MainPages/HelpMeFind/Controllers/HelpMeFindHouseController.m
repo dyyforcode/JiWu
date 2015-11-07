@@ -22,8 +22,12 @@
 
 #pragma mark -页面加载前预设置
 -(void)viewWillAppear:(BOOL)animated{
-        
+    self.tabBarController.tabBar.hidden = YES;
     [self.tableView reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
 }
 
 - (void)viewDidLoad {

@@ -64,11 +64,13 @@
     
     
     NSArray * titles = @[@"当前位置:",@"价       格:",@"户       型:"];
-    
+    NSArray * iconArray = @[@"add_.png",@"price_.png",@"house_.png"];
+    self.iconView.image = [UIImage imageNamed:iconArray[index]];
     self.titleLabel.text = titles[index];
     if(index == 0){
         self.nameLabel.textColor = ([self.addressString isEqualToString:@"位置"]) ? [UIColor lightGrayColor] : [UIColor blackColor];
         self.nameLabel.text = self.addressString;
+        
     }else if(index == 1){
         self.nameLabel.textColor = ([self.priceString isEqualToString:@"请选择价格"]) ? [UIColor lightGrayColor] : [UIColor blackColor];
         self.nameLabel.text = self.priceString;

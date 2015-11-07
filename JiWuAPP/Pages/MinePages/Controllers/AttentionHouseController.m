@@ -23,6 +23,13 @@
 
 @implementation AttentionHouseController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 -(NSMutableArray *)titleArray{
     if(!_titleArray){
         NSMutableArray * titleArray = [NSMutableArray array];
@@ -61,7 +68,7 @@
     }
     [self.titleArray addObjectsFromArray:[mutableDict allKeys]];
     for(NSString * str in self.titleArray){
-        NSLog(@"%@",str);
+       
         NSMutableArray * subArray = [NSMutableArray array];
         for(NSDictionary * dict in array){
             if([dict[@"cityName"] isEqualToString:str]){
@@ -71,7 +78,7 @@
         [self.dataArray addObject:subArray];
     }
     [self.tableView reloadData];
-    NSLog(@"arrayCount : %ld",self.titleArray.count);
+    
 }
 
 - (void)didReceiveMemoryWarning {

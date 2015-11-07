@@ -65,9 +65,14 @@
     return _dataArray;
 }
 
+
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 #pragma mark -页面即将加载
 -(void)viewWillAppear:(BOOL)animated{
-    
+    self.tabBarController.tabBar.hidden = YES;
     
     //导航栏中间视图
     UISearchBar * searchBar = [[UISearchBar alloc] init];

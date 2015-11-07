@@ -42,6 +42,13 @@
 
 @implementation HelpMeFindChooseController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 
 #pragma mark -页面加载
 - (void)viewDidLoad {

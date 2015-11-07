@@ -25,14 +25,6 @@
 
 @implementation MessageController
 
-#pragma mark -设置视图属性
--(void)viewWillAppear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = NO;
-}
--(void)viewWillDisappear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];

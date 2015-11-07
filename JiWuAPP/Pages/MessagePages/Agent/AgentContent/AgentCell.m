@@ -29,7 +29,12 @@
 -(void)setAgentModel:(AgentModel *)agentModel{
     _agentModel = agentModel;
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:agentModel.avatar]];
+    if(![agentModel.avatar isEqualToString:@""]){
+         [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:agentModel.avatar]];
+    }else{
+        self.iconImageView.image = [UIImage imageNamed:@"消息-头像.png"];
+    }
+   
     self.nameLabel.text = agentModel.agentName;
     self.areaLabel.text = agentModel.areaName;
     self.companyLabel.text = agentModel.agencyName;

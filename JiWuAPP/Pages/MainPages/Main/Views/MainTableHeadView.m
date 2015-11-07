@@ -55,15 +55,15 @@
     CGFloat height = width + 30;
     
    
-    
+    NSArray * imagesArray = @[@"home_新房.png",@"home_团购.png",@"home_二手房.png",@"home_帮我找.png"];
     for(int i=0;i<4;i++){
         UIView * view = [[UIView alloc] initWithFrame:CGRectZero];
         
         UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
-        imageView.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+       
         
-        imageView.image = [UIImage imageNamed:@"arrow"];
+        imageView.image = [UIImage imageNamed:imagesArray[i]];
         label.text = self.titleArray[i];
         
         label.textAlignment = NSTextAlignmentCenter;
@@ -139,19 +139,19 @@
         make.width.equalTo(@(size.width));
         make.height.equalTo(@(1));
     }];
-    
+    NSArray * subArray = @[@"notes_.png",@"buy_.png",@"counter_.png"];
     for(int i=0;i<3;i++){
         UIButton * button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectZero;
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.buttonArray addObject:button];
         [self addSubview:button];
-        
+    
        
         [button setTitle:self.titleArray[i+4] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"first"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:subArray[i]] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTintColor:[UIColor greenColor]];
+        button.tintColor = [UIColor greenColor];
         
         UIView * splitView = [[UIView alloc] initWithFrame:CGRectZero];
         splitView.backgroundColor = [UIColor colorWithWhite:0.800 alpha:1.000];

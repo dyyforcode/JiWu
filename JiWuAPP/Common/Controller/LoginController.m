@@ -31,10 +31,10 @@
 -(void)keyboardWillChangeFrame:(NSNotification *)notification{
     
     //取出键盘动画时间
-    CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//    CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
     //取出键盘最后的frame
-    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     //计算tableView的移动距离
     
     
@@ -50,10 +50,15 @@
 }
 
 - (IBAction)verificationButtonClicked:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if(self.textField.text){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"sms://"]];
+        self.textField.text = nil;
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 - (IBAction)passwordButtonClicked:(UIButton *)sender {
     
+    [self.navigationController pushViewController:nil animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

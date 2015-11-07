@@ -21,6 +21,13 @@
 
 @implementation HouseDetialOtherBuildController
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

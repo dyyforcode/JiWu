@@ -37,12 +37,12 @@
 
 #pragma mark -页面即将消失
 -(void)viewWillDisappear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = YES;
+    
 }
 
 #pragma mark -页面即将加载
 -(void)viewWillAppear:(BOOL)animated{
-    self.tabBarController.tabBar.hidden = NO;
+    
     
     NSDictionary * city = [[NSUserDefaults standardUserDefaults] objectForKey:@"LocationCity"];
     if(!city){

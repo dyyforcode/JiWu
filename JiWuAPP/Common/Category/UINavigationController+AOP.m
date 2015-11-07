@@ -23,6 +23,7 @@
     NSArray * titles = @[@"FreshController",@"SecondHandController",@"GroupBuyingController",@"MessageController"];
     NSString * viewControllerClass = NSStringFromClass([viewController class]);
     NSString * userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserName"];
+    NSLog(@"%@",userName);
     BOOL isOpen = YES;
     for(NSString * className in titles){
         if([viewControllerClass isEqualToString:className]){
@@ -34,13 +35,13 @@
                 [self presentViewController:navigationController animated:YES completion:nil];
                 
             }else{
-                //[self pushViewController:viewController animated:YES];
+                
                 [self aop_pushViewController:viewController animated:YES];
             }
         }
     }
     if(isOpen){
-        //[self pushViewController:viewController animated:YES];
+        
         [self aop_pushViewController:viewController animated:YES];
     }
     

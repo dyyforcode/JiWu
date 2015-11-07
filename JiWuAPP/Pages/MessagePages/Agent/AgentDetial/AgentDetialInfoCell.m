@@ -48,7 +48,13 @@
 -(void)setDetialModel:(AgentDetialInfoModel *)detialModel{
     [super setDetialModel:detialModel];
     
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:detialModel.personPath]];
+    self.iconImageView.layer.cornerRadius = 30;
+    self.iconImageView.layer.masksToBounds = YES;
+    if(![detialModel.personPath isEqualToString:@""]){
+        [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:detialModel.personPath]];
+    }else{
+        self.iconImageView.image = [UIImage imageNamed:@"消息-头像.png"];
+    }
     self.starLabel.text = detialModel.genarelMark;
     self.infoLabel.text = [NSString stringWithFormat:@"%@  |  %@  |  入行%@",detialModel.birthplace,detialModel.age,detialModel.entryYears];
     self.goodLabel.text = [NSString stringWithFormat:@"  响应速度%@   |  服务态度%@   |  专业水平%@",detialModel.replyMark,detialModel.sercivesMark,detialModel.specialityMark];
