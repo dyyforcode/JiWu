@@ -9,6 +9,7 @@
 #import "MainHourseCell.h"
 
 #import "UIImageView+WebCache.h"
+#import "NSString+Frame.h"
 
 @interface MainHourseCell ()
 
@@ -54,3 +55,65 @@
 }
 
 @end
+
+
+
+
+
+
+@interface LocalPriceCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *statusIconView;
+@property (weak, nonatomic) IBOutlet UILabel *localAreaLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *width;
+
+@end
+@implementation LocalPriceCell
+
+-(void)setLocalPriceModel:(LocalPriceModel *)localPriceModel{
+    _localPriceModel = localPriceModel;
+    
+    NSArray * array = [localPriceModel.range componentsSeparatedByString:@"%"];
+    if([[array lastObject] isEqualToString:@"+"]){
+        self.statusIconView.image = [UIImage imageNamed:@"up_"];
+    }else{
+        self.statusIconView.image = [UIImage imageNamed:@"down_"];
+    }
+    NSString * cityName = [[NSUserDefaults standardUserDefaults] objectForKey:@"LocationCity"][@"cityName"];
+    NSString * localArea = [NSString stringWithFormat:@"%@本月均价",cityName];
+    self.localAreaLabel.text = localArea;
+    self.priceLabel.text = localPriceModel.averPrice;
+    self.subLabel.text = [NSString stringWithFormat:@"%@%%",[array firstObject]];
+    
+    self.width.constant = [localArea widthWithFont:[UIFont systemFontOfSize:17]];
+    
+}
+
+@end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

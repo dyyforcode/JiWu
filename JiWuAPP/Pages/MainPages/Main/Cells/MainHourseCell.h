@@ -10,10 +10,21 @@
 
 #import "MainHouseModel.h"
 
+
 @interface MainHourseCell : UITableViewCell
 
 @property (nonatomic) MainHouseModel * model;
 
 
+
+@end
+
+
+
+
+
+@interface LocalPriceCell : UITableViewCell
+
+@property (nonatomic) LocalPriceModel * localPriceModel;
 
 @end

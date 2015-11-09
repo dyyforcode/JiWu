@@ -56,6 +56,7 @@
     
     if(![city[@"cityName"] isEqualToString:self.navigationItem.leftBarButtonItem.title]){
         self.isChanged = YES;
+        [self clearCache];
     }else{
         self.isChanged = NO;
     }
@@ -68,9 +69,17 @@
     searchBar.placeholder = @"输入楼盘名称/关键词";
     searchBar.barTintColor = [UIColor colorWithRed:0.000 green:0.502 blue:0.000 alpha:1.000];
     self.navigationItem.titleView = searchBar;
-    
-    
 
+}
+#pragma mark -清除缓存
+-(void)clearCache{
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:[NetInterface hotHouseCachePath] error:nil];
+    [fileManager removeItemAtPath:[NetInterface localPriceCachePath] error:nil];
+    [fileManager removeItemAtPath:[NetInterface freshHouseCachePath] error:nil];
+    [fileManager removeItemAtPath:[NetInterface secondHandHouseCachePath] error:nil];
+    [fileManager removeItemAtPath:[NetInterface groupBuyingCachePath] error:nil];
+    [fileManager removeItemAtPath:[NetInterface agentCachePath] error:nil];
 }
 #pragma mark -实现searchDelegate的方法
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -349,11 +358,9 @@
     
     if(indexPath.section == 0){
         LocalPriceModel * localPriceModel = self.dataArray[indexPath.section][indexPath.row];
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UItableViewCell"];
-        if(!cell){
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UItableViewCell"];
-        }
-        cell.textLabel.text = localPriceModel.averPrice;
+        LocalPriceCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocalPriceCell"];
+        
+        cell.localPriceModel = localPriceModel;
         //cell的点击效果设置为None
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;

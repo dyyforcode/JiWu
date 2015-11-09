@@ -396,12 +396,9 @@
 -(void)loadData{
     if([[NSFileManager defaultManager] fileExistsAtPath:self.cachePath]){
         
-        if(self.isChanged){
-            
-            return;
-        }
-        [self loadDataFromServer];
-       // [self loadDataFromLocal];
+        
+        
+        [self loadDataFromLocal];
     }else{
         [self loadDataFromServer];
         

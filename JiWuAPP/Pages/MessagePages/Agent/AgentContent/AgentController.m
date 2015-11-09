@@ -15,6 +15,7 @@
 #import "AgentDetialController.h"
 
 #import "MJRefresh.h"
+#import "NetInterface.h"
 
 @interface AgentController ()
 
@@ -97,11 +98,38 @@
 }
 #pragma mark -数据加载
 -(void)loadData{
-    [self loadDataFromServer];
+    if([[NSFileManager defaultManager] fileExistsAtPath:[NetInterface agentCachePath]]){
+        [self loadDataFromLocal];
+    }else{
+        [self loadDataFromServer];
+    }
+}
+-(void)loadDataFromLocal{
+     NSMutableArray * dataArray = [NSMutableArray array];
+    
+    NSData * data = [NSData dataWithContentsOfFile:[NetInterface agentCachePath] options:0 error:nil];
+    
+    if(self.dataArray.count > 0){
+        [self.dataArray removeAllObjects];
+    }
+    NSDictionary * objectDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    
+    NSArray * objectArray = objectDictionary[@"agentArray"];
+    if(self.dataArray.count > 0){
+        [self.dataArray removeAllObjects];
+    }
+    for(NSDictionary * node in objectArray){
+        AgentModel * agentModel = [AgentModel agentModelWithNode:node];
+        [dataArray addObject:agentModel];
+    }
+    [self.dataArray addObjectsFromArray:dataArray];
+    
+    [self.tableView reloadData];
+
 }
 -(void)loadDataFromServer{
     
-    NSMutableArray * dataArray = [NSMutableArray array];
+   
     
     NSString * path = @"http://m.jiwu.com/app!agentList.action?v=1.4&appKey=&deviceId=862851029616599&cityId=%@&areaId=0&startId=1&pageSize=10";
     
@@ -113,22 +141,11 @@
     [manager GET:serverPath parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if(responseObject){
-            if(self.dataArray.count > 0){
-                [self.dataArray removeAllObjects];
+            if([[NSFileManager defaultManager] fileExistsAtPath:[NetInterface agentCachePath]]){
+                [[NSFileManager defaultManager] removeItemAtPath:[NetInterface agentCachePath] error:nil];
             }
-            NSDictionary * objectDictionary = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            
-            NSArray * objectArray = objectDictionary[@"agentArray"];
-            if(self.dataArray.count > 0){
-                [self.dataArray removeAllObjects];
-            }
-            for(NSDictionary * node in objectArray){
-                AgentModel * agentModel = [AgentModel agentModelWithNode:node];
-                [dataArray addObject:agentModel];
-            }
-            [self.dataArray addObjectsFromArray:dataArray];
-            
-            [self.tableView reloadData];
+            [responseObject writeToFile:[NetInterface agentCachePath] options:0 error:nil];
+            [self loadDataFromLocal];
         }
         [self endRefresh];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

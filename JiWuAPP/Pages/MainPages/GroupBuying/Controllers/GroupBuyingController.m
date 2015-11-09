@@ -14,6 +14,7 @@
 #import "GroupBuyingDetialController.h"
 
 #import "MJRefresh.h"
+#import "NetInterface.h"
 
 @interface GroupBuyingController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -127,10 +128,37 @@
 
 #pragma mark -数据加载
 -(void)loadData{
-    [self loadDataFromServe];
+    if([[NSFileManager defaultManager] fileExistsAtPath:[NetInterface groupBuyingCachePath]]){
+        [self loadDataFromLocal];
+    }else{
+        [self loadDataFromServe];
+    }
+}
+-(void)loadDataFromLocal{
+     NSMutableArray * dataArray = [NSMutableArray array];
+    
+    NSData * data = [NSData dataWithContentsOfFile:[NetInterface groupBuyingCachePath] options:0 error:nil];
+    NSDictionary * objectDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSArray * objectArray = objectDict[@"buildArray"];
+    
+    if(self.dataArray.count > 0){
+        [self.dataArray removeAllObjects];
+    }
+    
+    for(NSDictionary * node in objectArray){
+        GroupBuyingModel * groupModel = [GroupBuyingModel groupBuyingModelWithNode:node];
+        [dataArray addObject:groupModel];
+    }
+    [self.dataArray addObjectsFromArray:dataArray];
+    [self.tableView reloadData];
+    if(self.dataArray.count > 0){
+        [self.view bringSubviewToFront:self.tableView];
+        self.backView.hidden = YES;
+    }
+    [self.view bringSubviewToFront:self.toolBar];
 }
 -(void)loadDataFromServe{
-    NSMutableArray * dataArray = [NSMutableArray array];
+   
     
      NSString * cityID = [[NSUserDefaults standardUserDefaults] objectForKey:@"LocationCity"][@"cityId"];
     NSString * path = @"http://m.jiwu.com/app!buildList.action?v=1.4&appKey=7daf08ccfc302a08fa7a58341e8390ca&deviceId=862851029616599&cityId=%@&areaId=0&plateId=0&priceId=0&featureId=0&startId=1&pageSize=10&type=1";
@@ -142,25 +170,12 @@
     [manager GET:servePath parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if(responseObject){
-            NSDictionary * objectDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSArray * objectArray = objectDict[@"buildArray"];
-            
-            if(self.dataArray.count > 0){
-                [self.dataArray removeAllObjects];
+            if([[NSFileManager defaultManager] fileExistsAtPath:[NetInterface groupBuyingCachePath]]){
+                [[NSFileManager defaultManager] removeItemAtPath:[NetInterface groupBuyingCachePath] error:nil];
             }
             
-            for(NSDictionary * node in objectArray){
-                GroupBuyingModel * groupModel = [GroupBuyingModel groupBuyingModelWithNode:node];
-                [dataArray addObject:groupModel];
-            }
-            [self.dataArray addObjectsFromArray:dataArray];
-            [self.tableView reloadData];
-            if(self.dataArray.count > 0){
-                [self.view bringSubviewToFront:self.tableView];
-                self.backView.hidden = YES;
-            }
-             [self.view bringSubviewToFront:self.toolBar];
-            
+            [responseObject writeToFile:[NetInterface groupBuyingCachePath] options:0 error:nil];
+            [self loadDataFromLocal];
         }
         
         [self endRefresh];

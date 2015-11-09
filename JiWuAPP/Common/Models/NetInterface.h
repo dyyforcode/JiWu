@@ -25,6 +25,9 @@
 +(NSString *)hotHouseServerPath;
 +(NSString *)hotHouseCachePath;
 
++(NSString *)groupBuyingServerPath;
++(NSString *)groupBuyingCachePath;
+
 +(NSString *)agentServerPath;
 +(NSString *)agentCachePath;
 

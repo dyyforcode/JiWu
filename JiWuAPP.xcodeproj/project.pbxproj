@@ -514,6 +514,7 @@
 		BC39CE961BDF743C003DADBE /* ios-social-sdk-share-quick.html in Resources */ = {isa = PBXBuildFile; fileRef = BC39CE7A1BDF743C003DADBE /* ios-social-sdk-share-quick.html */; };
 		BC39CE971BDF743C003DADBE /* ios-social-sdk-socialBar.html in Resources */ = {isa = PBXBuildFile; fileRef = BC39CE7B1BDF743C003DADBE /* ios-social-sdk-socialBar.html */; };
 		BC39CE981BDF743C003DADBE /* markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = BC39CE7C1BDF743C003DADBE /* markdown.css */; };
+		BC41074E1BF0CC92007D682A /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC41074D1BF0CC92007D682A /* TabBarController.m */; };
 		BC4164E91BDB1B6700909CB5 /* FreshHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4164AE1BDB1B6700909CB5 /* FreshHouseCell.m */; };
 		BC4164EA1BDB1B6700909CB5 /* FreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4164B11BDB1B6700909CB5 /* FreshController.m */; };
 		BC4164EB1BDB1B6700909CB5 /* AreaLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4164C11BDB1B6700909CB5 /* AreaLocationCell.m */; };
@@ -1187,6 +1188,8 @@
 		BC39CE7A1BDF743C003DADBE /* ios-social-sdk-share-quick.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "ios-social-sdk-share-quick.html"; sourceTree = "<group>"; };
 		BC39CE7B1BDF743C003DADBE /* ios-social-sdk-socialBar.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "ios-social-sdk-socialBar.html"; sourceTree = "<group>"; };
 		BC39CE7C1BDF743C003DADBE /* markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = markdown.css; sourceTree = "<group>"; };
+		BC41074C1BF0CC92007D682A /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		BC41074D1BF0CC92007D682A /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		BC4164AD1BDB1B6700909CB5 /* FreshHouseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreshHouseCell.h; sourceTree = "<group>"; };
 		BC4164AE1BDB1B6700909CB5 /* FreshHouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FreshHouseCell.m; sourceTree = "<group>"; };
 		BC4164B01BDB1B6700909CB5 /* FreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreshController.h; sourceTree = "<group>"; };
@@ -2558,6 +2561,8 @@
 				BC59D5C81BEC919F001EA39D /* LoginController.h */,
 				BC59D5C91BEC919F001EA39D /* LoginController.m */,
 				BC59D5CA1BEC919F001EA39D /* LoginController.xib */,
+				BC41074C1BF0CC92007D682A /* TabBarController.h */,
+				BC41074D1BF0CC92007D682A /* TabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3721,6 +3726,7 @@
 				BC4164F11BDB1B6700909CB5 /* MainCategoryCell.m in Sources */,
 				BC4545FE1BE3936D00A6EA27 /* GroupBuyingCell.m in Sources */,
 				BC2ADB361BE0BE7E00237644 /* FLAnnotation.m in Sources */,
+				BC41074E1BF0CC92007D682A /* TabBarController.m in Sources */,
 				BC841FA71BD8870F00783263 /* MJRefreshAutoStateFooter.m in Sources */,
 				BC841F7A1BD8870F00783263 /* AFURLConnectionOperation.m in Sources */,
 				BC841F791BD8870F00783263 /* AFSecurityPolicy.m in Sources */,

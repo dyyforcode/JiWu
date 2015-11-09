@@ -372,13 +372,8 @@
 #pragma mark -数据加载
 -(void)loadData{
     if([[NSFileManager defaultManager] fileExistsAtPath:self.cachePath]){
-        if(self.isChanged){
-           
-            
-            return;
-        }
-        [self loadDataFromServer];
-       // [self loadDataFromLocal];
+        
+        [self loadDataFromLocal];
     }else{
         [self loadDataFromServer];
         
@@ -421,6 +416,9 @@
     [manager GET:self.serverPath parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if(responseObject){
+            if([[NSFileManager defaultManager] fileExistsAtPath:self.cachePath]){
+                [[NSFileManager defaultManager] removeItemAtPath:self.cachePath error:nil];
+            }
             NSData * data = operation.responseData;
             [data writeToFile:self.cachePath options:0 error:nil];
             [self loadDataFromLocal];
